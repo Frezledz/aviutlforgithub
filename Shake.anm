@@ -1,0 +1,37 @@
+--トラックなどを用意する
+--track0:amount,0,1,1
+--track1:speed,0,100,1
+--dialog:amplitude,amp={100,100,40,20};frequency,freq={5.5,4.5,10,10};phase,phas={0,0,0,0};Use rotate/chk,chk=1;
+
+--度からラジアンに変換する
+function getradian(degree)
+    return degree*(math.pi/180)
+end
+--値を返す
+function returnpos(ampl, frequ, phase)
+    value= math.sin(((obj.time-0.5-phase)*frequ)*getradian(180)*obj.getvalue(1)) *ampl*obj.getvalue(0)  
+    return  value
+end
+
+
+--代入する
+x= returnpos(amp[1], freq[1], phas[1])
+y= returnpos(amp[2], freq[2], phas[2])
+z= returnpos(amp[3], freq[3], phas[3])
+r= returnpos(amp[4], freq[4], phas[4])
+if(chk == 1) then
+    obj.ox = x
+    obj.oy = y
+    obj.oz = z
+    obj.rz = r
+end
+
+
+
+
+
+
+
+
+--(math.sin((obj.time-0.5)*getradian(180)))*100*obj.getvalue(0)
+--(math.sin(obj.time/frequ))*ampl*obj.getvalue(0)
