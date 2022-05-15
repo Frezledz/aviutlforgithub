@@ -14,6 +14,7 @@ function returnpos(ampl, frequ, phase)
     return  value
 end
 
+
 --代入する
 x= returnpos(amp[1], freq[1], phas[1])
 y= returnpos(amp[2], freq[2], phas[2])
